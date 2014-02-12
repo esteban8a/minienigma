@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'minienigma'
-  s.version     = '0.0.6'
+  s.version     = '0.0.7'
   s.date        = '2014-02-12'
   s.summary     = "Simple encrypting/decrypting machine using AES 256."
   s.description = "Minienigma it's a simple to use string encrypting/decrypting machine out of the box.
