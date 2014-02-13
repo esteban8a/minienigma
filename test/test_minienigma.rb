@@ -3,6 +3,7 @@ require 'minienigma'
 
 class MiniEnigmaTest < Test::Unit::TestCase
 	def test_encryption
+		MiniEnigma.configure('vL3axd1kxy5BSLL8fdGqg2tHWkSWAcD8', '84DF5FCE8F76C548')
 		text = "This is a test for encryption"
 		encrypted_text = MiniEnigma.encrypt text
 		refute_equal text, encrypted_text

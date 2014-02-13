@@ -2,8 +2,8 @@ require 'openssl'
 require 'base64'
 
 class MiniEnigma
-	@@key = 'vL3axd1kxy5BSLL8fdGqg2tHWkSWAcD8'
-	@@iv = '84DF5FCE8F76C548'
+	@@key = ''
+	@@iv = ''
 
 	def self.configure(key, iv)
 		@@key = key
@@ -11,8 +11,12 @@ class MiniEnigma
 	end
 
 	def self.keys
-		puts "Key: #{@@key} - IV: #{@@iv}"
+		return "Key: #{@@key} - IV: #{@@iv}"
 	end
+
+  def self.url_encode(data)
+    return URI.encode_www_form_component(data)
+  end
 
 	def self.encrypt(data)
 		self.validate_config
@@ -35,7 +39,7 @@ class MiniEnigma
       plain_data = decipher.update(Base64.decode64(data)) + decipher.final
       return plain_data.force_encoding('UTF-8')
     rescue Exception => e
-      puts e
+      puts e.backtrace
       return nil
     end
   end
